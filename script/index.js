@@ -2,6 +2,8 @@ import { radioplayerInit } from './radioplayer.js';
 import { videoplayerInit } from './videoplayer.js';
 import { musicplayerInit } from './musicplayer.js';
 
+videoplayerInit();
+
 const playerBtn = document.querySelectorAll('.player-btn'),
 playerBlock = document.querySelectorAll('.player-block'),
 temp = document.querySelector('.temp');
