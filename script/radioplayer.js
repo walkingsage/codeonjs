@@ -30,7 +30,6 @@ radioNavigation.addEventListener('change', event => {
 volumeStat.addEventListener('change', () => {
     const val = volumeStat.value / 100;
     audio.volume = val;
-    console.log(val);
 });
 
 const changeIconPlay = () => {
