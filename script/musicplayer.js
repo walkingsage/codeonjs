@@ -1,4 +1,4 @@
-import { addZero } from './supScript';
+import { addZero } from './supScript.js';
 
 export const musicplayerInit = () => {
     const audio = document.querySelector('.audio'),
@@ -95,13 +95,20 @@ export const musicplayerInit = () => {
 
         audioprogresstiming.style.width = progress + '%';
 
-        const minutesPassed = Math.floor(currentTime/60);
-        const secondPassed = Math.floor(currentTime%60);
+        const minutesPassed = Math.floor(currentTime/60) || '0';
+        const secondPassed = Math.floor(currentTime%60) || '0';
 
-        const minutesTotal = Math.floor(duration/60);
-        const secondTotal = Math.floor(duration%60);
+        const minutesTotal = Math.floor(duration/60) || '0';
+        const secondTotal = Math.floor(duration%60) || '0';
 
         audioTimePassed.textContent = `${addZero(minutesPassed)}:${addZero(secondPassed)}`;
-        audioTimeTotal.textContent = `${addZero(minutesTotal)}:${secondTotal}`;
+        audioTimeTotal.textContent = `${addZero(minutesTotal)}:${addZero(secondTotal)}`;
+    });
+
+    audioprogress.addEventListener('click', event => {
+        const x = event.offsetX;
+        const allWidth = audioprogress.clientWidth;
+        const progress = (x / allWidth) * audioPlayer.duration;
+        audioPlayer.currentTime = progress;
     });
 };
