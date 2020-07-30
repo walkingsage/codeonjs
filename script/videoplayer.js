@@ -66,7 +66,13 @@ const videoPlayer = document.querySelector('.video-player'),
         value = videoProgress.value;
 
         videoPlayer.currentTime = (value * duration)/100;
-    })
+    });
+
+    videoplayerInit.stop = () => {
+      if (!videoPlayer.paused){
+          stopPlay();
+      }  
+    };
     
 };
 

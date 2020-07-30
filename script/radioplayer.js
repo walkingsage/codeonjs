@@ -61,4 +61,9 @@ radioStop.addEventListener('click', () => {
     }
     changeIconPlay();
 });
+
+radioplayerInit.stop = () => {
+    changeIconPlay();
+    audio.pause();
+};
 };
